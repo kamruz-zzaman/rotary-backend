@@ -16,6 +16,7 @@ app.use(cors());
 const adminRoutes = require('./routes/adminRoute');
 const contactRoutes = require('./routes/contactRoute');
 const blogRoutes = require('./routes/blogRoutes');
+const aboutRoutes = require('./routes/AboutRoutes');
 
 // application routes
 const run = async () => {
@@ -27,8 +28,9 @@ const run = async () => {
 			res.send('Hey, Welcome To Rotary API');
 		});
 		app.use('/admin', adminRoutes);
-        app.use('/contact', contactRoutes);
-        app.use('/blogs', blogRoutes);
+		app.use('/contact', contactRoutes);
+		app.use('/blogs', blogRoutes);
+		app.use('/about', aboutRoutes);
 	} catch (err) {
 		console.log(err);
 	}
