@@ -14,6 +14,7 @@ app.use(cors());
 
 // Import Routes
 const adminRoutes = require('./routes/adminRoute');
+const userLoginRoutes = require('./routes/userLoginRoute');
 const contactRoutes = require('./routes/contactRoute');
 const blogRoutes = require('./routes/blogRoutes');
 const aboutRoutes = require('./routes/AboutRoutes');
@@ -29,6 +30,7 @@ const run = async () => {
 			res.send('Hey, Welcome To Rotary API');
 		});
 		app.use('/admin', adminRoutes);
+		app.use('/user', userLoginRoutes);
 		app.use('/contact', contactRoutes);
 		app.use('/blogs', blogRoutes);
 		app.use('/about', aboutRoutes);

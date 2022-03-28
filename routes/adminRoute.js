@@ -64,42 +64,42 @@ router.post('/login', (req, res) => {
 
 // Update a user profile
 router.put('/:id', (req, res) => {
-    if (req.files) {
-        const encodedImage = req.files.image.data.toString('base64');
-        const image = Buffer.from(encodedImage, 'base64');
-        const updatedUser = {
-            ...req.body,
-            image,
-        };
-        // update user in database
-        collection.updateOne(
-            { _id: new mongodb.ObjectId(req.params.id) },
-            { $set: updatedUser },
-            (err, result) => {
-                if (err) {
-                    res.send(err);
-                } else {
-                    res.send({ message: 'User updated successfully' });
-                }
-            }
-        );
-    } else {
-        const updatedUser = {
-            ...req.body,
-        };
-        // update user in database
-        collection.updateOne(
-            { _id: new mongodb.ObjectId(req.params.id) },
-            { $set: updatedUser },
-            (err, result) => {
-                if (err) {
-                    res.send(err);
-                } else {
-                    res.send({ message: 'User updated successfully' });
-                }
-            }
-        );
-    }
+	if (req.files) {
+		const encodedImage = req.files.image.data.toString('base64');
+		const image = Buffer.from(encodedImage, 'base64');
+		const updatedUser = {
+			...req.body,
+			image,
+		};
+		// update user in database
+		collection.updateOne(
+			{ _id: new mongodb.ObjectId(req.params.id) },
+			{ $set: updatedUser },
+			(err, result) => {
+				if (err) {
+					res.send(err);
+				} else {
+					res.send({ message: 'User updated successfully' });
+				}
+			}
+		);
+	} else {
+		const updatedUser = {
+			...req.body,
+		};
+		// update user in database
+		collection.updateOne(
+			{ _id: new mongodb.ObjectId(req.params.id) },
+			{ $set: updatedUser },
+			(err, result) => {
+				if (err) {
+					res.send(err);
+				} else {
+					res.send({ message: 'User updated successfully' });
+				}
+			}
+		);
+	}
 });
 
 module.exports = router;
