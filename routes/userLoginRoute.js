@@ -43,6 +43,7 @@ router.post('/login', (req, res) => {
     // check if user exists
     collection.findOne({ email }, (err, user) => {
         if (err) {
+
             res.send(err);
         } else if (!user) {
             res.send({ message: 'User does not exist' });
