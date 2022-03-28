@@ -17,6 +17,7 @@ const adminRoutes = require('./routes/adminRoute');
 const contactRoutes = require('./routes/contactRoute');
 const blogRoutes = require('./routes/blogRoutes');
 const aboutRoutes = require('./routes/AboutRoutes');
+const projectRoutes = require('./routes/project');
 
 // application routes
 const run = async () => {
@@ -31,6 +32,7 @@ const run = async () => {
 		app.use('/contact', contactRoutes);
 		app.use('/blogs', blogRoutes);
 		app.use('/about', aboutRoutes);
+		app.use('/project', projectRoutes);
 	} catch (err) {
 		console.log(err);
 	}
